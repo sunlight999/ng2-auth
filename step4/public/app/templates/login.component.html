@@ -1,0 +1,25 @@
+            <div class="panel-body">
+                  <h2>Please enter your credentials:</h2>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="email">Email:</label>
+                        <input [(ngModel)]="user.email" id="email" 
+                            type="email" class="validate">
+                        
+                    </div>
+                </div>
+ 
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="password">Password:</label>
+                        <input [(ngModel)]="user.password" id="password" 
+                            type="password" class="validate">
+                        
+                    </div>
+                </div>
+ 
+                <span>{{errorMsg}}</span>
+                <button (click)="login()" 
+                    class="btn waves-effect waves-light" 
+                    type="submit" name="action">Login</button>
+            </div>

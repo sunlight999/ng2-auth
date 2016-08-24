@@ -1,0 +1,13 @@
+{
+  "name": "Angularar 2 Auth Tutorial Server",
+  "description": "Code from the Angular 2 Auth tutorial",
+  "keywords": [ "angular2", "auth", "tutorial" ],
+  "repository": "https://github.com/sunlight999/ng2-auth.git",
+  "logo": "https://facebook.github.io/react/img/logo.svg",
+  "website": "https://louvig.wordpress.com/",
+  "success_url": "/",
+  "env" : {
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+  }
+}
+
