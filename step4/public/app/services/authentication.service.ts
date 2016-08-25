@@ -19,10 +19,10 @@ export class AuthenticationService {
        return;
      }
      // We get a profile object for the user from Auth0
-     sessionStorage.setItem('profile', JSON.stringify(profile));
+     localStorage.setItem('profile', JSON.stringify(profile));
      // We also get the user's JWT
-     sessionStorage.setItem('id_token', id_token);
-    window.location.reload();    
+     localStorage.setItem('id_token', id_token);
+    this.router.navigateByUrl('/dashboard',false);
     
    });
  }
@@ -30,9 +30,9 @@ export class AuthenticationService {
  logout() {
    // To log out, we just need to remove
    // the user's profile and token
-   sessionStorage.removeItem('profile');
-   sessionStorage.removeItem('id_token');
-  //window.location.reload(); 
+   localStorage.removeItem('profile');
+   localStorage.removeItem('id_token');
+    this.router.navigateByUrl('/dashboard',false);
  } 
   
 }

@@ -1,11 +1,6 @@
 import { Injectable }    from '@angular/core';
 import {Router} from '@angular/router-deprecated';
-import { Headers, Http } from '@angular/http';
-import {tokenNotExpired} from 'angular2-jwt';
-
-import 'rxjs/add/operator/toPromise';
-
-import { User } from '../classes/user';
+import { Headers } from '@angular/http';
 
 declare var Auth0Lock: any;
 
@@ -16,7 +11,7 @@ export class AuthenticationService {
   
  
   constructor(
-    private router: Router,private http: Http){}
+    private router: Router){}
  
   login() {
    this.lock.show((error: string, profile: Object, id_token: string) => {
@@ -28,7 +23,7 @@ export class AuthenticationService {
      localStorage.setItem('profile', JSON.stringify(profile));
      // We also get the user's JWT
      localStorage.setItem('id_token', id_token);
-     this.router.navigateByUrl('/dashboard',false);   
+     this.router.navigateByUrl('/dashboard',false);
     
    });
  }
@@ -38,14 +33,10 @@ export class AuthenticationService {
    // the user's profile and token
    localStorage.removeItem('profile');
    localStorage.removeItem('id_token');
-   this.router.navigateByUrl('/dashboard',false);
+    this.router.navigateByUrl('/dashboard',false);
  } 
  
- loggedIn() {
-  return tokenNotExpired();
-  }
-  
-  getAuthHeaders(){
+ getAuthHeaders(){
     let jwt = localStorage.getItem('id_token');
     let authHeader = new Headers();
     if(jwt) {

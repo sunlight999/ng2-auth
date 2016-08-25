@@ -1,7 +1,7 @@
 
 # Angular 2 Auth Tutorial
 
-In step 4 , the Authentication service is added with Auth0 Lock widget.
+In step 5 , the Hero service makes authenticated calls to the server api.
 
 ## To use
 
