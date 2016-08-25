@@ -39,6 +39,8 @@ app.set('port', (process.env.PORT || 3000));
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/dashboard', express.static(path.join(__dirname, 'public')));
 app.use('/heroes', express.static(path.join(__dirname, 'public')));
+app.use('/logout', express.static(path.join(__dirname, 'public')));
+app.use('/login', express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));

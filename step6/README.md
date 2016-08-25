@@ -1,7 +1,7 @@
 
 # Angular 2 Auth Tutorial
 
-In step 7 , the links to components are displayed dynamically.
+In step 6 , the components are protected.
 
 ## To use
 

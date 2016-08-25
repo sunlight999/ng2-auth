@@ -1,11 +1,11 @@
 import { Component }       from '@angular/core';
-import { HeroService }     from '../services/hero.service';
-import {AuthenticationService} from '../services/authentication.service';
 import { HeroDetailComponent } from './hero-detail.component';
+import { HeroService }     from '../services/hero.service';
+import { AuthenticationService }     from '../services/authentication.service';
 import { HeroesComponent } from './heroes.component';
-import { DashboardComponent } from './dashboard.component';
 import { LoginComponent } from './login.component';
 import { LogoutComponent } from './logout.component';
+import { DashboardComponent } from './dashboard.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 @Component({
@@ -13,10 +13,10 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
  template: `
   <h1>{{title}}</h1>
   <nav>
-    <a [routerLink]="['Dashboard']" *ngIf="loggedIn()">Dashboard</a>
-    <a [routerLink]="['Heroes']" *ngIf="loggedIn()" >Heroes</a>
-    <a [routerLink]="['Logout']" *ngIf="loggedIn()">Logout</a>
-    <a [routerLink]="['Login']" *ngIf="!loggedIn()">Login</a>
+    <a [routerLink]="['Dashboard']" >Dashboard</a>
+    <a [routerLink]="['Heroes']"  >Heroes</a>
+    <a [routerLink]="['Logout']"  >Logout</a>
+    <a [routerLink]="['Login']"  >Login</a>
     
   </nav>
   <router-outlet></router-outlet>
@@ -41,7 +41,7 @@ providers: [
     name: 'Heroes',
     component: HeroesComponent
   },
-   {
+  {
     path: '/login',
     name: 'Login',
     component: LoginComponent
@@ -59,19 +59,5 @@ providers: [
 ])
 export class AppComponent {
   title = 'Tour of Heroes';
-  constructor(
-  private authService: AuthenticationService) {}
-  
-    loggedIn() {
-      try {
-        var result= this.authService.loggedIn();
-        if(result===null){
-        result=false;
-        }
-      } catch (e){
-       result=false;
-      }
-      return result;
-    }
     
 }
