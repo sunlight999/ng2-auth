@@ -1,6 +1,6 @@
 */node_modules/
 */build/
 */typings/
-*/app/*.js*
-*/app/*/*.js*
+*/public/app/*.js*
+*/public/app/*/*.js*
 */npm-debug.log

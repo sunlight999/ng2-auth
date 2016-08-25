@@ -1,8 +1,10 @@
 import { Component }       from '@angular/core';
-import { HeroService }     from '../services/hero.service';
-import {AuthenticationService} from '../services/authentication.service';
 import { HeroDetailComponent } from './hero-detail.component';
+import { HeroService }     from '../services/hero.service';
+import { AuthenticationService }     from '../services/authentication.service';
 import { HeroesComponent } from './heroes.component';
+import { LoginComponent } from './login.component';
+import { LogoutComponent } from './logout.component';
 import { DashboardComponent } from './dashboard.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
@@ -13,8 +15,8 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
   <nav>
     <a [routerLink]="['Dashboard']" >Dashboard</a>
     <a [routerLink]="['Heroes']"  >Heroes</a>
-    <a (click)="logout()" >Logout</a>
-    <a (click)="login()" >Login</a>
+    <a [routerLink]="['Logout']"  >Logout</a>
+    <a [routerLink]="['Login']"  >Login</a>
     
   </nav>
   <router-outlet></router-outlet>
@@ -40,6 +42,16 @@ providers: [
     component: HeroesComponent
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: LoginComponent
+  },
+   {
+    path: '/logout',
+    name: 'Logout',
+    component: LogoutComponent
+  },
+  {
   path: '/detail/:id',
   name: 'HeroDetail',
   component: HeroDetailComponent
@@ -47,14 +59,5 @@ providers: [
 ])
 export class AppComponent {
   title = 'Tour of Heroes';
-  constructor(
-  private authService: AuthenticationService) {}
-  
-  logout() {
-        this.authService.logout();
-    }
-  login() {
-        this.authService.login();
-    } 
     
 }

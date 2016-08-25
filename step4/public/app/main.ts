@@ -1,4 +1,4 @@
-// The usual bootstrapping imports
+// The usual bootstrapping imports *
 import { bootstrap }      from '@angular/platform-browser-dynamic';
 import { HTTP_PROVIDERS } from '@angular/http';
 

@@ -4,7 +4,6 @@ import {AuthenticationService} from '../services/authentication.service';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from './heroes.component';
 import { DashboardComponent } from './dashboard.component';
-import {tokenNotExpired} from 'angular2-jwt';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 @Component({

@@ -7,7 +7,7 @@ import { HeroService } from '../services/hero.service';
 @Component({
   selector: 'my-dashboard',
   templateUrl: 'app/templates/dashboard.component.html',
-  styleUrls: ['app/styles/dashboard.component.css']
+  styleUrls: ['app/styles/dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
