@@ -5,9 +5,7 @@ import { Router } from '@angular/router-deprecated';
 
 @Component({
   selector: 'my-heroes',
-  template: `
-  <router-outlet></router-outlet>
-`
+  template: ``
 })
 export class LogoutComponent implements OnInit {
   
@@ -18,7 +16,6 @@ export class LogoutComponent implements OnInit {
  
   ngOnInit() {
     this.authService.logout();
-    this.router.navigate(['Dashboard']);
   }
  
 }

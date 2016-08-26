@@ -23,7 +23,7 @@ export class AuthenticationService {
      localStorage.setItem('profile', JSON.stringify(profile));
      // We also get the user's JWT
      localStorage.setItem('id_token', id_token);
-     this.router.navigateByUrl('/dashboard',false);
+     
     
    });
  }
@@ -33,7 +33,7 @@ export class AuthenticationService {
    // the user's profile and token
    localStorage.removeItem('profile');
    localStorage.removeItem('id_token');
-    this.router.navigateByUrl('/dashboard',false);
+   
  } 
  
  getAuthHeaders(){

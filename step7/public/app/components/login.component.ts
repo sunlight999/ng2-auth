@@ -5,9 +5,7 @@ import { Router } from '@angular/router-deprecated';
 
 @Component({
   selector: 'my-heroes',
-  template: `
-  <router-outlet></router-outlet>
-`
+  template: ``
 })
 export class LoginComponent implements OnInit {
   
@@ -18,7 +16,7 @@ export class LoginComponent implements OnInit {
  
   ngOnInit() {
     this.authService.login();
-    this.router.navigate(['Dashboard']);
+   
   }
  
 }

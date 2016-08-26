@@ -4,13 +4,10 @@ import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService } from '../services/hero.service';
 import { OnInit } from '@angular/core';
 import { Router,CanActivate } from '@angular/router-deprecated';
-import {AuthenticationService} from '../services/authentication.service';
 import {tokenNotExpired} from 'angular2-jwt';
-
 
 @Component({
   selector: 'my-heroes',
-  providers: [AuthenticationService],
   templateUrl: 'app/templates/heroes.component.html',
   styleUrls:  ['app/styles/heroes.component.css'],
   directives: [HeroDetailComponent]
@@ -24,10 +21,10 @@ export class HeroesComponent implements OnInit {
   
   constructor(
     private router: Router,
-    private heroService: HeroService,
-    private authService: AuthenticationService) {}
+    private heroService: HeroService
+    ) {}
   getHeroes() {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes,e => console.error(" HeroesComponent init failed "));
   }
   ngOnInit() {
     this.getHeroes();
