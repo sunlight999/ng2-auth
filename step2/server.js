@@ -12,6 +12,7 @@
 
 var fs = require('fs');
 var path = require('path');
+var url = require('url');
 var express = require('express');
 var jwt = require('express-jwt');
 var cors = require('cors');
@@ -26,13 +27,15 @@ app.use(cors());
 app.use(jwt({
   secret: new Buffer('3fU9S8VNOqe3cq4u2g06oAlRUaGB3U4yN80mBgnnTH_NkJ0eubv8o_lgDdBiMqWq', 'base64'),
   audience: 'gz3QoLutG1Z5LRwVTQZikRb3RchCPo2c'
-}).unless({path: ['/']}));
+}).unless(function (req) {
+  var pathname = url.parse(req.originalUrl).pathname;
+  return !~pathname.indexOf("/api/");
+}));
 
 var HEROES_FILE = path.join(__dirname, 'heroes.json');
 
 app.set('port', (process.env.PORT || 3000));
 
-app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
